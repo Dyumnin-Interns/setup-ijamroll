@@ -1,0 +1,44 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x63a274447510 .scope package, "$unit" "$unit" 2 1;
+ .timescale -9 -12;
+S_0x63a2744476a0 .scope module, "xor_test" "xor_test" 3 1;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y";
+o0x716f1f694018 .functor BUFZ 1, C4<z>; HiZ drive
+v0x63a274456d20_0 .net "a", 0 0, o0x716f1f694018;  0 drivers
+o0x716f1f694048 .functor BUFZ 1, C4<z>; HiZ drive
+v0x63a274456df0_0 .net "b", 0 0, o0x716f1f694048;  0 drivers
+v0x63a274456ec0_0 .net "y", 0 0, L_0x63a274456fc0;  1 drivers
+S_0x63a2744345f0 .scope module, "dut" "dut" 3 7, 4 1 0, S_0x63a2744476a0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y";
+L_0x63a274456fc0 .functor XOR 1, o0x716f1f694018, o0x716f1f694048, C4<0>, C4<0>;
+v0x63a27441ffd0_0 .net "a", 0 0, o0x716f1f694018;  alias, 0 drivers
+v0x63a274456b40_0 .net "b", 0 0, o0x716f1f694048;  alias, 0 drivers
+v0x63a274456c00_0 .net "y", 0 0, L_0x63a274456fc0;  alias, 1 drivers
+    .scope S_0x63a2744476a0;
+T_0 ;
+    %vpi_call/w 3 14 "$dumpfile", "waves.vcd" {0 0 0};
+    %vpi_call/w 3 15 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "/home/jamroll/cocotbTut/setup-ijamroll/tests/wrappers/xor_test.v";
+    "/home/jamroll/cocotbTut/setup-ijamroll/tests/../hdl/dut.v";
